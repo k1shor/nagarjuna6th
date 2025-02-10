@@ -5,6 +5,8 @@ import './App.css'
 import First from './First'
 import Second from './second'
 import MyRoutes from './MyRoutes'
+import './mystyle.css'
+
 
 function App() {
   const [count, setCount] = useState(0)

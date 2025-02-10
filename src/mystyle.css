@@ -1,0 +1,13 @@
+.myclass 
+{
+    text-align: center;
+    font-size: 60px;
+    color: purple;
+    background-color: skyblue;
+}
+
+.mybuttoncolor{
+    /* background-color: rgb(122,222, 111); */
+    /* background-color: #rrggbb; */
+    background-color: hwb(0 50% 50%);
+}

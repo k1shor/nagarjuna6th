@@ -2,7 +2,11 @@ import React from 'react'
 
 const Second = () => {
   return (
-    <>second</>
+    <>
+      <h1 className='myclass'>
+        second component
+      </h1>
+    </>
   )
 }
 

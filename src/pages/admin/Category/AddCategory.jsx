@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-const AddCategory = () => {
+const AddCategory = ({data}) => {
   let [category, setCategory] = useState('')
-  let [success, setSuccess] = useState(false)
+  let {success, setSuccess, addForm, showAddForm} = data
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -21,6 +21,7 @@ const AddCategory = () => {
         else {
           alert("category added successfully")
           setSuccess(true)
+          showAddForm(!addForm)
           setCategory('')
         }
       })
@@ -29,7 +30,8 @@ const AddCategory = () => {
 
   return (
     <>
-      <form className='p-10 rounded-xl shadow-2xl'>
+      <form className='p-10 rounded-xl shadow-2xl fixed top-7 right-7'>
+        <h1>Add Category</h1>
         <input type="text" className='w-full px-4 py-2 border'
           onChange={e => setCategory(e.target.value)}
           value={category}

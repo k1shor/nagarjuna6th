@@ -3,11 +3,11 @@ import AddCategory from './AddCategory'
 
 const CategoryHome = () => {
     let [categories, setCategories] = useState([])
+    let [success, setSuccess] = useState(false)
+    let [addForm, showAddForm] = useState(false)
 
     const getAllCategories = () => {
         return fetch(`http://localhost:5000/getallcategories`)
-        // return fetch(`https://fakestoreapi.com/products`)
-
             .then(response => { return response.json() })
             .catch(error => console.log(error))
     }
@@ -20,31 +20,36 @@ const CategoryHome = () => {
                 }
                 else {
                     setCategories(data)
+                    setSuccess(false)
                 }
             })
-    }, [])
+    }, [success])
 
     return (
         <div className='p-10'>
             <h1 className='text-2xl text-center underline mb-5'>Categories</h1>
+
+            <button className='btn bg-gradient-to-r from-green-500 to-blue-200 '
+                onClick={() => showAddForm(!addForm)}>
+                Add New Category</button>
+
             {
                 categories.length > 0 &&
-                categories.map((category, i)=>{
+                categories.map((category, i) => {
                     return <div className='my-5'>
-                        {/* <h1>{i+1}. {category.title}</h1> */}
-                        {/* <img src={category.image} className='w-56' alt="" />
-                        <h1> Price: {category.price}</h1>
-                        <h1> Description: {category.description}</h1> */}
                         <h1> Category: {category.category_name}</h1>
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button className='btn'>Edit</button>
+                        <button className='btn'>Delete</button>
                     </div>
                 })
             }
 
             <hr className='my-2 w-full' />
 
-            <AddCategory/>
+            {
+                addForm &&
+                <AddCategory data={{ success, setSuccess, addForm, showAddForm }} />
+            }
         </div>
     )
 }

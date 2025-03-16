@@ -1,13 +1,19 @@
-.myclass 
-{
-    text-align: center;
-    font-size: 60px;
-    color: purple;
+.btn{
     background-color: skyblue;
+    color: purple;
 }
 
-.mybuttoncolor{
-    /* background-color: rgb(122,222, 111); */
-    /* background-color: #rrggbb; */
-    background-color: hwb(0 50% 50%);
+.dark-btn{
+    background-color: purple;
+    color: aliceblue;
+}
+
+.mybg{
+    background-color: white;
+    color: black;
+}
+
+.mybg-dark{
+    background-color: black;
+    color: white;
 }

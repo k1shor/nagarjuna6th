@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-import Swal from 'sweetalert2'
 
-const AddCategory = ({data}) => {
-  let [category, setCategory] = useState('')
-  let {success, setSuccess, addForm, showAddForm} = data
+const EditCategory = ({data}) => {
+    let {success, setSuccess, editForm, showEditForm, id, category_name} = data
+    let [category, setCategory] = useState(category_name)
 
   const handleSubmit = e => {
     e.preventDefault()
-    fetch(`http://localhost:5000/addcategory`, {
-      method: "POST",
+    fetch(`http://localhost:5000/updatecategory/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
@@ -20,10 +19,10 @@ const AddCategory = ({data}) => {
           alert(data.error)
         }
         else {
-          Swal.fire("Congrats!!","category added successfully","success")
+          alert("category added successfully")
           setSuccess(true)
-          showAddForm(!addForm)
-          setCategory('')
+          showEditForm(!editForm)
+        //   setCategory('')
         }
       })
       .catch(error => console.log(error))
@@ -32,15 +31,15 @@ const AddCategory = ({data}) => {
   return (
     <>
       <form className='p-10 rounded-xl shadow-2xl fixed top-7 right-7'>
-        <h1>Add Category</h1>
+        <h1>Edit Category</h1>
         <input type="text" className='w-full px-4 py-2 border'
           onChange={e => setCategory(e.target.value)}
           value={category}
         />
-        <button className='btn' onClick={handleSubmit}>Add Category</button>
+        <button className='btn' onClick={handleSubmit}>Edit Category</button>
       </form>
     </>
   )
 }
 
-export default AddCategory
+export default EditCategory

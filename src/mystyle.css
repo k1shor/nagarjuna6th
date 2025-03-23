@@ -1,19 +1,43 @@
-.btn{
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+.btn {
     background-color: skyblue;
     color: purple;
 }
 
-.dark-btn{
+.dark-btn {
     background-color: purple;
     color: aliceblue;
 }
 
-.mybg{
+.mybg {
     background-color: white;
     color: black;
 }
 
-.mybg-dark{
+.mybg-dark {
     background-color: black;
     color: white;
+}
+
+.update-btn {
+    @apply bg-amber-200 hover:bg-amber-400 active:bg-amber-600;
+}
+
+.delete-btn {
+    @apply bg-red-200 hover:bg-red-400 active:bg-red-600;
+}
+
+.input{
+    @apply w-full  text-xl bg-amber-50 focus:bg-white outline-0;
+}
+
+form{
+    @apply p-20 border rounded-3xl shadow-2xl;
+}
+
+textarea{
+    @apply h-64 resize-none;
 }

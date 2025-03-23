@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -9,16 +10,22 @@ const Header = () => {
                         <a className="navbar-brand fs-3 fw-bold" href="#">Navbar</a>
 
                     </div>
-                    <div className="col-12 col-md-6 py-1">
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <div className="col-12 col-md-6 py-1 ">
+                        <form className="d-flex py-1" role="search">
+                            <input className="form-control me-2 " type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn mybuttoncolor" type="submit">Search</button>
                         </form>
                     </div>
                     <div className="col-12 col-md-3 fs-3 d-flex justify-content-evenly">
-                        <i className="bi bi-box-arrow-in-left"></i>
-                        <i className='bi bi-person-plus'></i>
-                        <i className='bi bi-cart'></i>
+                        <Link to='/login'>
+                            <i className="bi bi-box-arrow-in-left"></i>
+                        </Link>
+                        <Link to='/register'>
+                            <i className='bi bi-person-plus'></i>
+                        </Link>
+                        <Link to='/cart'>
+                            <i className='bi bi-cart'></i>
+                        </Link>
 
                     </div>
                 </div>
@@ -46,7 +53,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Contact</a>
                             </li>
-                            
+
                         </ul>
 
                     </div>

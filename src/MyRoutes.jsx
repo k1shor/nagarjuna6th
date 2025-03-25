@@ -17,6 +17,7 @@ import CategoryHome from './pages/admin/Category/CategoryHome'
 import TestPage from './pages/TestPage'
 import ProductsHome from './pages/admin/Products/ProductsHome'
 import AddProduct from './pages/admin/Products/AddProduct'
+import Verify from './pages/Verify'
 
 const MyRoutes = () => {
     return (
@@ -33,21 +34,24 @@ const MyRoutes = () => {
 
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/products' element={<Products />} />
+
+                    <Route path='/verify/:token' element={<Verify />} />
+
                 </Route>
 
                 <Route path='/admin' element={<AdminLayout />}>
                     <Route index element={<Dashboard />} />
-                    <Route path='category' element = {<CategoryHome/>}/>
+                    <Route path='category' element={<CategoryHome />} />
 
-                    <Route path='product' element ={<ProductsHome/>}/>
-                    <Route path='product/new' element ={<AddProduct/>}/>
+                    <Route path='product' element={<ProductsHome />} />
+                    <Route path='product/new' element={<AddProduct />} />
 
                 </Route>
 
                 <Route path='/counter' element={<Counter />} />
                 <Route path='/persons' element={<DisplayPersons />} />
 
-                <Route path='/test' element={<TestPage/>}/>
+                <Route path='/test' element={<TestPage />} />
             </Routes>
         </BrowserRouter>
     )
